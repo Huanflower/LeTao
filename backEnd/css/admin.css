@@ -1,0 +1,127 @@
+html,body {
+    font-family: "Microsoft YaHei";
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+
+/* main page */
+.lt-aside {
+    position: absolute;
+    width: 180px;
+    height: 100%;
+    background-color: #222d32;
+}
+.lt-aside .brand {
+    width: 100%;
+    height: 50px;
+    background-color: #337ab7;
+}
+.lt-aside .brand a {
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    color:#fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.lt-aside .user {
+    padding: 30px 20px;
+}
+.lt-aside .user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;  
+}
+.lt-aside .user span {
+    color:#fff;
+    font-size: 12px;
+}
+.lt-aside .menu {
+    list-style: none;
+    margin-top: 3px;
+}
+.lt-aside .menu li i {
+    padding-right: 2px;
+}
+.lt-aside .menu li>a {
+    display: block;
+    height: 100%;
+    line-height: 34px;
+    color: #aaa;
+    border: 3px solid transparent;
+    padding-left: 30px;
+}
+.lt-aside .menu .child {
+    display: none;
+}
+.lt-aside .menu .child a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 50px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+
+/* 右侧 */
+.lt-section {
+    padding-left: 180px;
+    height: 100%;
+}
+.lt-section.menu {
+    padding-left: 0px;
+}
+
+.lt-section .lt-nav {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #3c8dbc;
+    margin-bottom: 20px;
+}
+.lt-section .lt-nav a {
+    font-size: 16px;
+    color: #fff;
+}
+.lt-section .lt-nav a:first-child {
+    float: left;
+    padding-left: 15px;
+}
+
+.lt-section .lt-nav a:last-child {
+    float: right;
+    padding-right: 15px;
+}
+.lt-section .lt-content {
+    width: 100%;
+}
+.lt-section .lt-canvas .picTable {
+    float: left;
+    width: 45%;
+    height: 400px;
+}
+.lt-section .lt-canvas .picTable:last-child {
+    margin-left: 10%;
+}
+
+/* productManage.html 的样式设置 */
+.btn-group-lg>.btn,
+.btn-lg {
+    font-size: 9px;
+    margin-bottom:15px;
+}
+
+.modal-body input,
+.modal-body textarea {
+    margin-bottom: 15px;
+}
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>后台管理系统-登录</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body class="bg_login">
+<!-- 主体 登录信息 -->
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-primary mt_150">
+            
+            <div class="panel-heading text-center">
+                <h4>后台管理系统</h4>
+            </div>
+
+            <div class="panel-body">
+                <form id="login" class="form-horizontal" autocomplete="off">
+                    
+                    <!-- 用户名 -->
+                    <div class="form-group">
+                        <label for="inputUserName3" class="col-sm-3 control-label">用户名</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="username" class="form-control" id="inputUserName3" placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <!-- 密码 -->
+                    <div class="form-group">
+                        <label for="inputUserName3" class="col-sm-3 control-label">密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" name="password" class="form-control" id="inputUserName3" placeholder="请输入用密码">
+                        </div>
+                    </div>
+                    <!-- 重置 -->
+                    <div class="form-group">
+                      <div class="col-sm-offset-3 col-sm-10">
+                          <button type="reset" class="btn btn-default mr_50">重置</button>
+                          <button type="submit" class="btn btn-primary">登录</button>
+                      </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./js/admin.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>
