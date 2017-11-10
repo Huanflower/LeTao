@@ -17,40 +17,40 @@
 </head>
 
 <body>
-<!-- 左侧 -->
-<aside class="lt-aside">
-    <!-- brand品牌 -->
-    <div class="brand">
-        <a href="javascript:;">ITCAST</a>
-    </div>
-    <!-- user -->
-    <div class="user">
-        <img src="./images/default.png" alt="">
-        <span>超级管理员</span>
-    </div>
-    <!-- menu -->
-    <ul class="menu">
-        <li>
-            <a href="./userManage.html">
-                <i class="glyphicon glyphicon-user"></i>用户管理
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <i class="glyphicon glyphicon-list"></i> 分类管理
-            </a>
-            <div class="child">
-                <a href="./categoryFirst.html">一级分类</a>
-                <a href="./categorySecond.html">二级分类</a>
-            </div>
-        </li>
-        <li>
-            <a href="./productManage.html">
-                <i class="glyphicon glyphicon-tags"></i>商品管理
-            </a>
-        </li>
-    </ul>
-</aside>
+    <!-- 左侧 -->
+    <aside class="lt-aside">
+        <!-- brand品牌 -->
+        <div class="brand">
+            <a href="javascript:;">ITCAST</a>
+        </div>
+        <!-- user -->
+        <div class="user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- menu -->
+        <ul class="menu">
+            <li>
+                <a href="./userManage.html">
+                    <i class="glyphicon glyphicon-user"></i>用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i> 分类管理
+                </a>
+                <div class="child">
+                    <a href="./categoryFirst.html">一级分类</a>
+                    <a href="./categorySecond.html">二级分类</a>
+                </div>
+            </li>
+            <li>
+                <a href="./productManage.html">
+                    <i class="glyphicon glyphicon-tags"></i>商品管理
+                </a>
+            </li>
+        </ul>
+    </aside>
 
 
     <!-- 右侧 -->
@@ -66,7 +66,7 @@
                 <i class="glyphicon glyphicon-log-out"></i>
             </a>
         </div>
-    
+
         <div class="lt-content">
             <div class="container-fluid">
                 <!-- 路径导航 -->
@@ -77,13 +77,13 @@
                     <li class="active">分类管理</li>
                     <li class="active">一级分类</li>
                 </ol>
-    
+
                 <!-- 表单呈现 -->
                 <div class="add_content">
                     <table class="table table-bordered">
-                
+
                         <button id="addBtn" class="btn btn-default mb_15">添加分类</button>
-                        
+
                         <!-- 添加分类时弹出的盒子 -->
                         <div class="modal fade" id="addModal">
                             <div class="modal-dialog modal-sm">
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                
+
                         <!-- 表头 -->
                         <thead>
                             <tr>
@@ -116,30 +116,30 @@
                                 <th width="80%">分类名称</th>
                             </tr>
                         </thead>
-                
+
                         <!-- 主体 -->
                         <tbody></tbody>
-                
+
                     </table>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- 引入jquery -->
-<script src="./lib/jquery/jquery.min.js"></script>
-<!-- 引入bootstrap的插件 -->
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-<!-- 引入echarts库 -->
-<script src="./lib/echarts/echarts.min.js"></script>
-<!-- 引入表单验证的插件 -->
-<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-<!-- 引入进度条插件 -->
-<script src="./lib/nprogress/nprogress.js"></script>
-<!-- 引入admin文件 -->
-<script src="./js/admin.js"></script>
-<!-- 引入index.js -->
-<script src="./js/index.js"></script>
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap的插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入echarts库 -->
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入表单验证的插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入admin文件 -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入index.js -->
+    <script src="./js/index.js"></script>
     <!-- 针对右上退出 -->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1">
@@ -165,9 +165,9 @@
     </div>
     <script>
         $('#addBtn').on('click', function () {
-                /*显示模态框*/
-                $('#addModal').modal('show');
-            });
+            /*显示模态框*/
+            $('#addModal').modal('show');
+        });
     </script>
 </body>
 

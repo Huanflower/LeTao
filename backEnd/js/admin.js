@@ -2,7 +2,9 @@
 
 //1、进度条
 //不要让进度条显示圆圈
-NProgress.configure({ showSpinner: false });
+NProgress.configure({ 
+    showSpinner: false
+});
 //$.ajax ({
     //type:请求方式
     //url: 请求地址

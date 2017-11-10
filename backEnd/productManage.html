@@ -15,41 +15,42 @@
     <!-- 引入当前页面的css -->
     <link rel="stylesheet" href="./css/admin.css">
 </head>
+
 <body>
-<!-- 左侧 -->
-<aside class="lt-aside">
-    <!-- brand品牌 -->
-    <div class="brand">
-        <a href="javascript:;">ITCAST</a>
-    </div>
-    <!-- user -->
-    <div class="user">
-        <img src="./images/default.png" alt="">
-        <span>超级管理员</span>
-    </div>
-    <!-- menu -->
-    <ul class="menu">
-        <li>
-            <a href="./userManage.html">
-                <i class="glyphicon glyphicon-user"></i>用户管理
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <i class="glyphicon glyphicon-list"></i> 分类管理
-            </a>
-            <div class="child">
-                <a href="./categoryFirst.html">一级分类</a>
-                <a href="./categorySecond.html">二级分类</a>
-            </div>
-        </li>
-        <li>
-            <a href="./productManage.html">
-                <i class="glyphicon glyphicon-tags"></i>商品管理
-            </a>
-        </li>
-    </ul>
-</aside>
+    <!-- 左侧 -->
+    <aside class="lt-aside">
+        <!-- brand品牌 -->
+        <div class="brand">
+            <a href="javascript:;">ITCAST</a>
+        </div>
+        <!-- user -->
+        <div class="user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <!-- menu -->
+        <ul class="menu">
+            <li>
+                <a href="./userManage.html">
+                    <i class="glyphicon glyphicon-user"></i>用户管理
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="glyphicon glyphicon-list"></i> 分类管理
+                </a>
+                <div class="child">
+                    <a href="./categoryFirst.html">一级分类</a>
+                    <a href="./categorySecond.html">二级分类</a>
+                </div>
+            </li>
+            <li>
+                <a href="./productManage.html">
+                    <i class="glyphicon glyphicon-tags"></i>商品管理
+                </a>
+            </li>
+        </ul>
+    </aside>
 
 
     <!-- 右侧 -->
@@ -82,9 +83,9 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                         添加商品
+                            添加商品
                         </button>
-                        
+
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
@@ -103,7 +104,8 @@
                                             <input type="text" class="form-control" placeholder="请输入商品价格">
                                             <input type="text" class="form-control" placeholder="请输入商品原价">
                                             <input type="text" class="form-control" placeholder="请输入商品尺码">
-                                            <input type="file" name=""></li>
+                                            <input type="file" name="">
+                                            </li>
                                             </ul>
                                         </form>
                                     </div>
@@ -135,20 +137,20 @@
         </div>
     </section>
 
-<!-- 引入jquery -->
-<script src="./lib/jquery/jquery.min.js"></script>
-<!-- 引入bootstrap的插件 -->
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-<!-- 引入echarts库 -->
-<script src="./lib/echarts/echarts.min.js"></script>
-<!-- 引入表单验证的插件 -->
-<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-<!-- 引入进度条插件 -->
-<script src="./lib/nprogress/nprogress.js"></script>
-<!-- 引入admin文件 -->
-<script src="./js/admin.js"></script>
-<!-- 引入index.js -->
-<script src="./js/index.js"></script>
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap的插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入echarts库 -->
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入表单验证的插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入admin文件 -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入index.js -->
+    <script src="./js/index.js"></script>
     <!-- 针对右上退出 -->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1">
