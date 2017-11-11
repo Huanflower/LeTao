@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
     <!-- 引入当前页面的css -->
     <link rel="stylesheet" href="./css/admin.css">
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +26,7 @@
     <aside class="lt-aside">
         <!-- brand品牌 -->
         <div class="brand">
-            <a href="javascript:;">ITCAST</a>
+            <a href="./login.html">ITCAST</a>
         </div>
         <!-- user -->
         <div class="user">
@@ -35,15 +40,17 @@
                     <i class="glyphicon glyphicon-user"></i>用户管理
                 </a>
             </li>
+
             <li>
-                <a href="javascript:;">
+                <a data-toggle="collapse" href="#collapseExample">
                     <i class="glyphicon glyphicon-list"></i> 分类管理
                 </a>
-                <div class="child">
+                <div class="collapse  child" id="collapseExample">
                     <a href="./categoryFirst.html">一级分类</a>
                     <a href="./categorySecond.html">二级分类</a>
                 </div>
             </li>
+
             <li>
                 <a href="./productManage.html">
                     <i class="glyphicon glyphicon-tags"></i>商品管理
@@ -85,25 +92,27 @@
                         <button id="addBtn" class="btn btn-default mb_15">添加分类</button>
 
                         <!-- 添加分类时弹出的盒子 -->
-                        <div class="modal fade" id="addModal">
+                        <div class="modal fade" id="first-modal">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">
                                             <span>&times;</span>
                                         </button>
-                                        <h4 class="modal-title">添加分类</h4>
+                                        <h4 class="modal-title" id="myModalLabel">添加分类</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="#" id="form">
+                                        <form class="form-horizontal" id="first-form">
                                             <div class="form-group">
-                                                <input name="categoryName" type="text" class="form-control" placeholder="请输入一级分类名称">
+                                                <div class="col-sm-12">
+                                                    <input name="categoryName" type="text" class="form-control" id="categoryName" placeholder="请输入一级分类名称">
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                        <button type="submit" class="btn btn-primary" form="form">确定</button>
+                                        <button type="button" id="save" class="btn btn-primary">确定</button>
                                     </div>
                                 </div>
                             </div>
@@ -118,28 +127,51 @@
                         </thead>
 
                         <!-- 主体 -->
-                        <tbody></tbody>
-
+                        <tbody>
+                            <tr class="text-center">
+                                <td>1</td>
+                                <td>wanlum</td>
+                            </tr>
+                        </tbody>
                     </table>
+                    <!-- 页码 -->
+                    <div class="page">
+                        <ul class="pagination"></ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <script type="text/template" id="first-template">
+        <%for(var i=0; i<rows.length; i++){%>
+            <tr class="text-center">
+                <td>
+                    <%=(page-1)*size+i+1%>
+                </td>
+                <td>
+                    <%=rows[i].categoryName%></td>
+            </tr>
+            <%}%>
+    </script>
+
+    
     <!-- 引入jquery -->
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap的插件 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入echarts库 -->
-    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 模板引擎 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
     <!-- 引入表单验证的插件 -->
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入进度条插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin文件 -->
-    <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <script src="./js/index.js"></script>
+    <!-- 引入categoryFirst.js -->
+    <script src="./js/categoryFirst.js"></script>
+
+
     <!-- 针对右上退出 -->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1">

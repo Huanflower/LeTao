@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
     <!-- 引入当前页面的css -->
     <link rel="stylesheet" href="./css/admin.css">
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +26,7 @@
     <aside class="lt-aside">
         <!-- brand品牌 -->
         <div class="brand">
-            <a href="javascript:;">ITCAST</a>
+            <a href="./login.html">ITCAST</a>
         </div>
         <!-- user -->
         <div class="user">
@@ -35,15 +40,17 @@
                     <i class="glyphicon glyphicon-user"></i>用户管理
                 </a>
             </li>
+    
             <li>
-                <a href="javascript:;">
+                <a data-toggle="collapse" href="#collapseExample">
                     <i class="glyphicon glyphicon-list"></i> 分类管理
                 </a>
-                <div class="child">
+                <div class="collapse  child" id="collapseExample">
                     <a href="./categoryFirst.html">一级分类</a>
                     <a href="./categorySecond.html">二级分类</a>
                 </div>
             </li>
+    
             <li>
                 <a href="./productManage.html">
                     <i class="glyphicon glyphicon-tags"></i>商品管理
@@ -67,6 +74,7 @@
             </a>
         </div>
 
+        <!-- 表单内容区域 -->
         <div class="lt-content">
             <div class="container-fluid">
                 <!-- 路径导航 -->
@@ -76,44 +84,89 @@
                     </li>
                     <li class="active">用户管理</li>
                 </ol>
-
-                <!-- 表单呈现 -->
+        
+                <!-- 表格呈现 -->
                 <div class="add_content">
-                    <table class="table table-bordered">
-                        <!-- 标题 -->
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th width="10%">序号</th>
-                                <th width="30%">用户名</th>
-                                <th width="30%">手机号</th>
-                                <th width="20%">状态</th>
-                                <th width="10%">操作</th>
+                                <th>序号</th>
+                                <th>用户名</th>
+                                <th>手机号</th>
+                                <th>状态</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
-                        <!-- 主体 -->
                         <tbody>
-
+                            <tr class="text-center">
+                                <th>1</th>
+                                <td>zxh</td>
+                                <td>13752273153</td>
+                                <td>正常</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-primary">启用</a>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <th>2</th>
+                                <td>wanlum</td>
+                                <td>13635679821</td>
+                                <td>正常</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-danger">禁用</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
+
+                    <div class="page">
+                        <ul class="pagination"></ul>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
+
+    <!-- 模板引擎 -->
+    <!-- 原生语法：<%%>  输出<%=%> -->
+    <!-- 简洁语法：{{ }} -->
+    <!-- 绑定数据 -->
+    <!-- template(模板的id,数据对象) -->
+
+<script type="text/template" id="usermanage-template">
+  <%for(var i = 0; i<rows.length;i++){%>
+
+  <tr class="text-center">
+      <td><%=(page-1)*size+i+1%></td>
+      <td><%=rows[i].username%></td>
+      <td><%=rows[i].mobile%></td>
+      <td><%=rows[i].isDelete==1?'禁用':'正常'%></td>
+      <td>
+          <%if(rows[i].isDelete == 1) {%>
+          <a data-id="<%=rows[i].id%>"  href="javascript:;" class="btn btn-primary">启用</a>
+          <%}else {%>
+          <a href="javascript:;" class="btn btn-danger">禁用</a>
+          <%}%>
+      </td>
+    </tr>
+    <%}%>
+</script>
 
     <!-- 引入jquery -->
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap的插件 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入echarts库 -->
-    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入模板引擎库 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+    <!-- 引入分页 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <!-- 引入表单验证的插件 -->
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入进度条插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin文件 -->
-    <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <!-- <script src="./js/index.js"></script> -->
+    <!-- 引入userManage.js -->
+    <script src="./js/userManage.js"></script>
 
     <!-- 针对右上退出 -->
     <!-- Modal -->

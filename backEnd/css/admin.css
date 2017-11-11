@@ -51,16 +51,13 @@ a:focus {
 .lt-aside .menu li i {
     padding-right: 2px;
 }
-.lt-aside .menu li>a {
+.lt-aside .menu li a {
     display: block;
     height: 100%;
     line-height: 34px;
     color: #aaa;
     border: 3px solid transparent;
     padding-left: 30px;
-}
-.lt-aside .menu .child {
-    display: none;
 }
 .lt-aside .menu .child a {
     display: block;
@@ -111,6 +108,23 @@ a:focus {
 }
 .lt-section .lt-canvas .picTable:last-child {
     margin-left: 10%;
+}
+
+/* 登录页的样式设置 */
+.lt_login {
+    background-color: #222d32;
+}
+
+.mt_150 {
+    margin-top: 150px;
+}
+
+.mt_50 {
+    margin-right: 50px;
+}
+
+.mt_15 {
+    margin-bottom: 15px;
 }
 
 /* productManage.html 的样式设置 */

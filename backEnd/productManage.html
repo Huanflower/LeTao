@@ -14,14 +14,32 @@
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
     <!-- 引入当前页面的css -->
     <link rel="stylesheet" href="./css/admin.css">
+    <style>
+        th {
+            text-align: center;
+        }
+
+        .fileupload {
+            position: relative;
+        }
+
+        .fileupload input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    </style>
 </head>
 
 <body>
     <!-- 左侧 -->
     <aside class="lt-aside">
-        <!-- brand品牌 -->
+        <!-- brand -->
         <div class="brand">
-            <a href="javascript:;">ITCAST</a>
+            <a href="./index.html">
+                ITCAST
+            </a>
         </div>
         <!-- user -->
         <div class="user">
@@ -32,7 +50,7 @@
         <ul class="menu">
             <li>
                 <a href="./userManage.html">
-                    <i class="glyphicon glyphicon-user"></i>用户管理
+                    <i class="glyphicon glyphicon-user"></i> 用户管理
                 </a>
             </li>
             <li>
@@ -46,23 +64,19 @@
             </li>
             <li>
                 <a href="./productManage.html">
-                    <i class="glyphicon glyphicon-tags"></i>商品管理
+                    <i class="glyphicon glyphicon-tags"></i> 商品管理
                 </a>
             </li>
         </ul>
     </aside>
-
-
     <!-- 右侧 -->
     <section class="lt-section">
         <!-- 顶部导航 -->
         <div class="lt-nav">
-            <!-- 左侧展开连接 -->
             <a data-menu href="javascript:;">
                 <i class="glyphicon glyphicon-align-justify"></i>
             </a>
-            <!-- 右侧退出连接 -->
-            <a data-logout data-toggle="modal" href="#myModal">
+            <a data-logout data-toggle="modal" href="#logout-modal">
                 <i class="glyphicon glyphicon-log-out"></i>
             </a>
         </div>
@@ -75,106 +89,136 @@
                         <a href="#">管理系统</a>
                     </li>
                     <li class="active">商品管理</li>
+
                 </ol>
-
-                <!-- 表单呈现 -->
-                <div class="add_content">
-                    <table class="table table-bordered">
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                            添加商品
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h4 class="modal-title" id="myModalLabel">编辑商品</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <input type="text" class="form-control" placeholder="请输入商品名称">
-                                            <textarea class="form-control" rows="2" placeholder="请输入商品描述"></textarea>
-                                            <input type="text" class="form-control" placeholder="请输入商品库存">
-                                            <input type="text" class="form-control" placeholder="请输入商品价格">
-                                            <input type="text" class="form-control" placeholder="请输入商品原价">
-                                            <input type="text" class="form-control" placeholder="请输入商品尺码">
-                                            <input type="file" name="">
-                                            </li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                        <button type="button" class="btn btn-primary">确定</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 表头 -->
+                <div class="lt-content">
+                    <a href="#first-modal" data-toggle="modal" class="btn btn-default">添加商品</a>
+                    <table class="table table-bordered table-hover" style="margin-top: 20px">
                         <thead>
-                            <tr>
-                                <th width="10%">序号</th>
-                                <th width="30%">用户名</th>
-                                <th width="30%">手机号</th>
-                                <th width="20%">状态</th>
-                                <th width="10%">操作</th>
+                            <tr class="text-center">
+                                <th>序号</th>
+                                <th>商品名称</th>
+                                <th>商品描述</th>
+                                <th>商品库存</th>
+                                <th>商品尺寸</th>
+                                <th>商品状态</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
-
-                        <!-- 主体 -->
-                        <tbody></tbody>
-
+                        <tbody>
+                            <tr class="text-center">
+                                <td>1</td>
+                                <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
+                                <td>描述</td>
+                                <td>44</td>
+                                <td>35-56</td>
+                                <td>以上架</td>
+                                <td>
+                                    <a href="javascript:;" class="btn btn-danger">下架</a>
+                                    <a href="javascript:;" class="btn btn-primary">编辑</a>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
+                    <div class="page">
+                        <ul class="pagination"></ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 引入jquery -->
-    <script src="./lib/jquery/jquery.min.js"></script>
-    <!-- 引入bootstrap的插件 -->
-    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入echarts库 -->
-    <script src="./lib/echarts/echarts.min.js"></script>
-    <!-- 引入表单验证的插件 -->
-    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-    <!-- 引入进度条插件 -->
-    <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin文件 -->
-    <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <script src="./js/index.js"></script>
-    <!-- 针对右上退出 -->
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1">
-        <div class="modal-dialog modal-sm">
+    <div class="modal fade" id="first-modal" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                    <h4 class="modal-title" id="myModalLabel">编辑商品</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="alert alert-danger">
-                        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
-                    </p>
+                    <form>
+                        <div class="form-group">
+                            <label class="sr-only" for="proName"></label>
+                            <input type="text" class="form-control" name="proName" id="proName" placeholder="请输入商品名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="proDesc"></label>
+                            <textarea type="text" class="form-control" name="proDesc" id="proDesc" placeholder="请输入商品描述"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="num"></label>
+                            <input type="text" class="form-control" name="num" id="num" placeholder="请输入商品库存">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="price"></label>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="请输入商品价格">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="oldPrice"></label>
+                            <input type="text" class="form-control" name="oldPrice" id="oldPrice" placeholder="请输入商品原价">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="size"></label>
+                            <input type="text" class="form-control" name="size" id="size" placeholder="请输入商品尺码">
+                        </div>
+
+                        <div class="form-group fileupload">
+                            <label class="sr-only" for="pic"></label>
+                            <a href="javascript:;" class="btn btn-default">上传图片</a>
+                            <input type="file" class="form-control" name="pic" id="pic" placeholder="请输入商品尺码">
+                            <span>提示： 必须上传三个图片</span>
+                        </div>
+
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <a type="button" class="btn btn-primary" href="./login.html">确定</a>
+                    <button type="button" id="save" class="btn btn-primary">确定</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script type="text/template" id="product-template">
+    <%for(var i= 0;i< rows.length;i++){%>
+
+    <tr class="text-center">
+        <td><%=(page-1)*size+i+1%></td>
+        <td><%=rows[i].proName%></td>
+        <td><%=rows[i].proDesc%></td>
+        <td><%=rows[i].num%></td>
+        <td><%=rows[i].size%></td>
+        <td><%=rows[i].statu==1?'已上架':'下架'%></td>
+        <td>
+          <a href="javascript:;" data-id="<%=rows[i].id%>" data-brand-id="<%=rows[i].brandId%>" class="btn btn-danger">下架</a>
+          <a href="javascript:;" data-id="<%=rows[i].id%>" data-brand-id="<%=rows[i].brandId%>" class="btn btn-primary">编辑</a>
+        </td>
+      </tr>
+      <%}%>
+  </script>
+
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap的插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入模板引擎 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+    <!-- 引入表单验证的插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入admin文件 -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入index.js -->
+    <script src="./js/productManage.js"></script>
 </body>
 
 </html>

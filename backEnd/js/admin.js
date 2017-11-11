@@ -39,9 +39,36 @@ $('[data-menu]').on('click',function(){
 
 
 // 点击分类管理 滑出 菜单
-$('.lt-aside .menu').on('click','[href="javascript:;"]',function(){
- var _this = $(this);
+// $('.lt-aside .menu').on('click','[href="javascript:;"]',function(){
+//  var _this = $(this);
 
- var child = _this.siblings();
- child.slideToggle();
+//  var child = _this.siblings();
+//  child.slideToggle();
+// })
+
+
+
+//4、点击退出按钮，弹出遮罩层  发送请求  退出用户登录
+// 步骤：
+//1、点击按钮
+$('#logout-modal').on('click','.btn-primary',function(){
+
+//2、发送ajax请求
+$.ajax({
+    type: 'get',
+    url: '/employee/employeeLogout',
+    data: {},
+    dataType: 'json',
+    success:function(data){
+        if(data.success == true){
+           $('#logout-modal').modal('hide');
+           setTimeout(function(){
+               location.href = '../login.html';
+           },500) 
+        }
+    }
+})
+//3、收到成功
+//4、隐藏遮罩层
+
 })
