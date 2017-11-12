@@ -86,7 +86,7 @@
                 </ol>
         
                 <!-- 表格呈现 -->
-                <div class="add_content">
+                <div class="lt_content">
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -144,9 +144,9 @@
       <td><%=rows[i].isDelete==1?'禁用':'正常'%></td>
       <td>
           <%if(rows[i].isDelete == 1) {%>
-          <a data-id="<%=rows[i].id%>"  href="javascript:;" class="btn btn-primary">启用</a>
+           <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>"  href="#manage-modal" data-toggle="modal" class="btn btn-primary">启用</a>
           <%}else {%>
-          <a href="javascript:;" class="btn btn-danger">禁用</a>
+           <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" href="#manage-modal" data-toggle="modal" class="btn btn-danger">禁用</a>
           <%}%>
       </td>
     </tr>
@@ -170,27 +170,28 @@
 
     <!-- 针对右上退出 -->
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="alert alert-danger">
-                        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <a type="button" class="btn btn-primary" href="./login.html">确定</a>
-                </div>
+<div class="modal fade" id="manage-modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-danger">
+                    <!-- <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？ -->
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定</button>
             </div>
         </div>
     </div>
+</div>
 
 </body>
 

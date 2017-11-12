@@ -36,4 +36,38 @@ $(function(){
     }
     //页面载入完成 调用ajax 呈现数据
     getUserManageData();
+
+    $('tbody').on('click', '.btn', function () {
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        var isDelete = $(this).hasClass('btn-danger') ? 1 : 0;
+        // console.log(isDelete);
+        if (isDelete == 1) {
+            $('#manage-modal').find('.alert').html('<i class="glyphicon glyphicon-info-sign"></i>你确定要启用' + name + '吗？');
+            console.log(1);
+        } else {
+            $('#manage-modal').find('.alert').html('<i class="glyphicon glyphicon-info-sign"></i>你确定要禁用' + name + '吗？');
+            console.log(0);
+        }
+
+        $('#manage-modal').on('click', '.btn-primary', function () {
+            $.ajax({
+                type: 'post',
+                url: ' /user/updateUser',
+                data: {
+                    id: id,
+                    isDelete: isDelete
+                },
+                dataType: 'json',
+                success: function (data) {
+                    // console.log(data);
+                    // getUserManageData();
+                    if (data.success == true) {
+                        $('#manage-modal').modal('hide');
+                        getUserManageData();
+                    }
+                }
+            })
+        })
+    })
 })

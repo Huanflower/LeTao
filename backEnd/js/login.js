@@ -68,7 +68,7 @@ $(function () {
             success: function (data) {
                 // console.log(data);
                 if (data.success == true) {
-                    location.href = '../index.html';
+                    location.href = './index.html';
                 } else if (data.error == 1001) {
                     // 密码错误
                     $('#login-form').data("bootstrapValidator").updateStatus("password", "INVALID", 'callback');

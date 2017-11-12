@@ -76,7 +76,7 @@
             <a data-menu href="javascript:;">
                 <i class="glyphicon glyphicon-align-justify"></i>
             </a>
-            <a data-logout data-toggle="modal" href="#logout-modal">
+            <a data-logout data-toggle="modal" href="#myModal">
                 <i class="glyphicon glyphicon-log-out"></i>
             </a>
         </div>
@@ -92,7 +92,7 @@
                     <li class="active">一级分类</li>
                 </ol>
                 <div class="lt-content">
-                    <a href="#first-modal" data-toggle="modal" class="btn btn-default">添加分类</a>
+                    <a href="#second-modal" data-toggle="modal" class="btn btn-default">添加分类</a>
                     <table class="table table-bordered table-hover" style="margin-top: 20px">
                         <thead>
                             <tr class="text-center">
@@ -121,7 +121,7 @@
         </div>
     </section>
 
-    <div class="modal fade" id="first-modal" tabindex="-1">
+    <div class="modal fade" id="second-modal" tabindex="-1">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -133,32 +133,32 @@
                 <div class="modal-body">
                     <div class="dropdown">
                         <span>一级分类：</span>
-                        <button class="btn btn-default" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            请选择
+                        <button class="btn btn-default dropdown-text" id="dLabel" type="button" data-toggle="dropdown">
+                            游泳馆
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dLabel">
-                            <li>游泳馆</li>
-                            <li>生活馆</li>
                         </ul>
                     </div>
-                    <form>
+                    <form id="secondform">
+                        <input type="hidden" id="categoryId" name="categoryId">
                         <div class="form-group" style="margin-top: 20px;">
                             <label class="sr-only" for="brandName">二级分类</label>
                             <input type="text" class="form-control" name="brandName" id="brandName" placeholder="请输入二级分类">
                         </div>
                         <div class="form-group fileupload">
+                            <input type="hidden" id="brandLogo" name="brandLogo">
                             <a href="javascript:;" class="btn btn-default">上传图片</a>
                             <input type="file" name="pic1">
                         </div>
                         <div class="preview">
-                            <img width="100" height="100" src="./images/none.png" alt="">
+                            <img width="100" height="100" id="previewimg" src="./images/none.png" alt="">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" id="save" class="btn btn-primary">确定</button>
+                    <button type="submit" id="save" class="btn btn-primary" form="secondform">确定</button>
                 </div>
             </div>
         </div>
@@ -176,12 +176,16 @@
       </tr>
       <%}%>
 
-  </script>
+    </script>
 
     <!-- 引入jquery -->
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap的插件 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 上传文件插件 -->
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>  
+    </script>
     <!-- 引入模板引擎 -->
     <script src="./lib/artTemplate/template-native.js"></script>
     <!-- 引入表单验证的插件 -->
@@ -194,6 +198,29 @@
     <script src="./js/admin.js"></script>
     <!-- 引入index.js -->
     <script src="./js/categorySecond.js"></script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="alert alert-danger">
+                        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <a type="button" class="btn btn-primary" href="./login.html">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

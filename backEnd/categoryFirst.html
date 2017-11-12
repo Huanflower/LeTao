@@ -86,10 +86,10 @@
                 </ol>
 
                 <!-- 表单呈现 -->
-                <div class="add_content">
-                    <table class="table table-bordered">
+                <div class="lt_content">
+                    <table class="table table-bordered table-hover">
 
-                        <button id="addBtn" class="btn btn-default mb_15">添加分类</button>
+                        <a href="#first-modal" data-toggle="modal" class="btn btn-default">添加分类</a>
 
                         <!-- 添加分类时弹出的盒子 -->
                         <div class="modal fade" id="first-modal">
@@ -105,7 +105,7 @@
                                         <form class="form-horizontal" id="first-form">
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <input name="categoryName" type="text" class="form-control" id="categoryName" placeholder="请输入一级分类名称">
+                                                    <input type="text" name="categoryName" class="form-control" id="categoryName" placeholder="输入一级分类">
                                                 </div>
                                             </div>
                                         </form>

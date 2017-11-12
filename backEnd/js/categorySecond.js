@@ -30,40 +30,99 @@ $(function () {
                         getSecondData(page);
                     }
                 });
-
-
-
-
-
-
-
-
             }
         })
     }
-
     getSecondData();
 
+    initDropDown();
 
+    initUpload();
 
+    // 信息校验
+    $('#secondform').bootstrapValidator({
 
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        /*校验的字段*/
+        fields: {
+            brandName: {
+                validators: {
+                    notEmpty: {
+                        message: '二级分类名称不能为空'
+                    }
+                }
+            }
+        }
+    }).on('success.form.bv', function (e) {
+        e.preventDefault();
+        /*提交数据了*/
+        var $form = $(e.target);
+  
+        var bv = $form.data('bootstrapValidator');
 
+        var data = $form.serialize();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $.ajax({
+            type: 'post',
+            url: '/category/addSecondCategory',
+            data: data,
+            success: function (data) {
+            //    console.log(data);
+               $('#second-modal').modal('hide');
+               getSecondData();
+            }
+        });
+    });
 
 })
+
+//下拉下单
+var initDropDown = function () {
+    var dropdown = $('.dropdown');
+    dropdown.click(function(){
+
+        $.ajax({
+            type: 'get',
+            url: '/category/queryTopCategoryPaging',
+            data: {
+                page: 1,
+                pageSize: 100
+            },
+            dataType: 'json',
+            success: function (data) {
+                
+                var html = '';
+                $.each(data.rows, function (i, item) {
+                    //console.log(i,item);
+                    html += '<li><a data-id="' + item.id + '" href="javascript:;">' + item.categoryName + '</a></li>'
+                })
+                //将数据插入到ul 中
+                $('.dropdown-menu').html(html);
+                $('.dropdown-menu').on('click', 'a', function () {
+                    $('.dropdown-text').html($(this).html());
+                    $('#categoryId').val($(this).attr('data-id'));
+                    
+                })
+            }
+        })
+    })
+   
+}
+
+//上传图片
+var initUpload = function () {
+
+    $(".fileupload input").fileupload({
+        url: "/category/addSecondCategoryPic",
+        done: function (e, data) {
+            //预览图片显示
+            $('#previewimg').attr('src', data.result.picAddr);
+            $('#brandLogo').val(data.result.picAddr);
+        }
+    })
+}
+

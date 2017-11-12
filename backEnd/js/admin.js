@@ -54,21 +54,21 @@ $('[data-menu]').on('click',function(){
 $('#logout-modal').on('click','.btn-primary',function(){
 
 //2、发送ajax请求
-$.ajax({
-    type: 'get',
-    url: '/employee/employeeLogout',
-    data: {},
-    dataType: 'json',
-    success:function(data){
-        if(data.success == true){
-           $('#logout-modal').modal('hide');
-           setTimeout(function(){
-               location.href = '../login.html';
-           },500) 
+    $.ajax({
+        type: 'get',
+        url: '/employee/employeeLogout',
+        data: {},
+        dataType: 'json',
+        success: function (data) {
+            // console.log(data);
+            if (data.success == true) {
+                $('#logout-modal').modal('hide');
+                setTimeout(function () {
+                    location.href = './login.html';
+                }, 500)
+            }
         }
-    }
-})
-//3、收到成功
-//4、隐藏遮罩层
-
+    })
+    // 3.收到成功
+    // 4.隐藏遮罩层 把地址定位到登录页
 })
